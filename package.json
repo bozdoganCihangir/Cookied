@@ -13,6 +13,7 @@
     },
     "scripts": {
         "build": "tsc",
-        "test": "jest"
+        "test": "jest --env=jsdom",
+        "test:dev": "jest --env=jsdom --watch"
     }
 }

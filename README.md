@@ -39,6 +39,9 @@ cookied.set("key", "value");
 cookied.delete("key");
 
 // Update a cookie
+cookied.update("key", "value");
+
+// Update a cookie with options
 cookied.update("key", "value", {
     /* options */
 });

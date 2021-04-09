@@ -32,24 +32,24 @@ cookied.set("key", "value", {
 ##### Available methods
 
 ```js
-// Set a cookie
+// set a cookie
 cookied.set("key", "value");
 
-// Delete a cookie
+// delete a cookie
 cookied.delete("key");
 
-// Update a cookie
+// update a cookie
 cookied.update("key", "value");
 
-// Update a cookie with options
+// update a cookie with options
 cookied.update("key", "value", {
     /* options */
 });
 
-// List all cookies
+// list all cookies
 cookied.list();
 
-// Delete all the cookies
+// delete all the cookies
 cookied.clear();
 ```
 

@@ -1,4 +1,4 @@
-# Cookied - Js client cookie manager
+# Cookied - JavaScript client cookie manager
 
 Cookied is a tiny browser javascript library that helps managing browser cookies slightly easier. Npm https://www.npmjs.com/package/manage-client-cookie
 

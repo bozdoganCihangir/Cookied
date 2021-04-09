@@ -2,20 +2,20 @@
 
 Cookied is a tiny browser javascript library that helps managing browser cookies slightly easier. 
 
-Npm https://www.npmjs.com/package/manage-client-cookie
+Npm https://www.npmjs.com/package/cookied-js
 
 ## Usage
 
 Install the package from npm
 
-`npm i manage-client-cookie`
+`npm i cookied-js`
 
 Works right out of the box, export and start using it:
 
 ##### Set cookie
 
 ```js
-import { cookied } from "manage-client-cookie";
+import { cookied } from "cookied-js";
 
 // basic
 cookied.set("key", "value");

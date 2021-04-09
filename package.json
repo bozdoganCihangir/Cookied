@@ -14,6 +14,7 @@
     "scripts": {
         "build": "tsc",
         "test": "jest --env=jsdom",
+        "build:dev": "tsc --watch",
         "test:dev": "jest --env=jsdom --watch --verbose"
     }
 }

@@ -1,13 +1,8 @@
-function getCookie(cookieKey) {
-    const list = document.cookie.split(";").map((cookie) => cookie.trim());
-
-    for (let i = 0; i < list.length; i++) {
-        const cookie = list[i].split("=");
-        const key = cookie[0];
-        const value = cookie[1];
-        if (key === cookieKey) {
-            return value;
-        }
+function getCookie(name) {
+    const cookies = doc.cookie.split(";").map((cookie) => cookie.trim());
+    const cookie = cookies.find((cookie) => cookie.split("=")[0] === name);
+    if (cookie) {
+        return cookie.split("=")[1];
     }
 }
 

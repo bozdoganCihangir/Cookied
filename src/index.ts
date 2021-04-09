@@ -1,8 +1,8 @@
 import { Options } from "./ICookie";
-import { validate, buildCookie, isEmpty } from "./utils";
+import { validate, buildCookie } from "./utils";
 
-const cookie = {
-    set(name: string, value: any, options?: Options): void {
+export const cookie = {
+    set(name: string, value: string, options?: Options): void {
         const exceeds = validate(value);
         if (exceeds) {
             throw new Error(
@@ -11,13 +11,24 @@ const cookie = {
         }
 
         const base = name + "=" + value;
-        if (isEmpty(options)) {
+        if (
+            !options ||
+            Object.keys(options).length < 1 ||
+            options.constructor !== Object
+        ) {
             document.cookie = base;
             return;
         }
+        document.cookie = buildCookie(base, options);
+    },
 
-        document.cookie = buildCookie(base, options as Options);
+    get(name: string): string | undefined {
+        const cookies = document.cookie
+            .split(";")
+            .map((cookie) => cookie.trim());
+        const cookie = cookies.find((cookie) => cookie.split("=")[0] === name);
+        if (cookie) {
+            return cookie.split("=")[1];
+        }
     },
 };
-
-export { cookie };

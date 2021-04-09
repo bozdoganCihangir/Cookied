@@ -31,8 +31,7 @@ export const calcExpire = (expire: string): string => {
     return now.toUTCString();
 };
 
-export const buildCookie = (base: string, options: Options): string => {
-    let cookie = base;
+export const buildCookie = (cookie: string, options: Options): string => {
     if (options.expires) {
         cookie += ";" + "expires=" + calcExpire(options.expires);
     }
@@ -49,11 +48,4 @@ export const buildCookie = (base: string, options: Options): string => {
         cookie += ";" + "secure";
     }
     return cookie;
-};
-
-export const isEmpty = (obj?: Options): boolean => {
-    if (!obj || Object.keys(obj).length < 1 || obj.constructor !== Object) {
-        return true;
-    }
-    return false;
 };

@@ -1,9 +1,9 @@
 {
-    "name": "manage-client-cookie",
+    "name": "cookied-js",
     "version": "1.0.0",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "repository": "https://github.com/jankoboz/manage-client-cookie.git",
+    "repository": "https://github.com/jankoboz/Cookied.git",
     "author": "Cihangir Bozdogan <cihangirrbozzd@gmail.com>",
     "license": "MIT",
     "dependencies": {

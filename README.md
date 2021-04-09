@@ -57,9 +57,9 @@ cookied.clear();
 
 ## Tips
 
--   Remember you can only set `string` as cookie value.
--   Cookie will auto-expire when browser close, unless you set an expire date.
--   Cookies are designed for small storage purpose, Largest maximum size per cookie storage is provided by Google Chrome and Opera as 18040 bytes and lowest is Android 5040 bytes.
+-   Remember, you can only set `string` as cookie value.
+-   Cookie will auto-expire when the browser close unless you set an expiration date.
+-   Cookies are designed for small storage purpose. Google Chrome and Opera provide the largest "maximum-size-per-cookie" storage (18040 bytes), and the lowest is Android (5040 bytes).
 
 ## Contributing
 

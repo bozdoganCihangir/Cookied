@@ -1,5 +1,5 @@
-import { BROWSER_PER_COOKIE_BYTE_LIMIT } from "../constants";
-import { Options } from "../ICookie";
+import { BROWSER_PER_COOKIE_BYTE_LIMIT } from "./constants";
+import { CookieOptions } from "./interfaces";
 
 export const convertToByte = (val: string) => {
     const matches = encodeURIComponent(val).match(/%[89ABab]/g);
@@ -31,7 +31,7 @@ export const calcExpire = (expire: string): string => {
     return now.toUTCString();
 };
 
-export const buildCookie = (cookie: string, options: Options): string => {
+export const buildCookie = (cookie: string, options: CookieOptions): string => {
     if (options.expires) {
         cookie += ";" + "expires=" + calcExpire(options.expires);
     }
@@ -47,5 +47,5 @@ export const buildCookie = (cookie: string, options: Options): string => {
     if (options.secure) {
         cookie += ";" + "secure";
     }
-    return cookie; 
+    return cookie;
 };

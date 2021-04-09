@@ -66,3 +66,19 @@ describe("Clear cookies", () => {
         expect(document.cookie).toBe("");
     });
 });
+
+describe("List cookies", () => {
+    test("Lists cookies", () => {
+        cookie.set("foo", "bar");
+        cookie.set("baz", "qux");
+        const expected = [{ foo: "bar" }, { baz: "qux" }];
+        const received = cookie.list();
+        expect(received).toMatchObject(expected);
+    });
+
+    test("returns empty array", () => {
+        cookie.clear();
+        const received = cookie.list();
+        expect(received.length).toBe(0);
+    });
+});

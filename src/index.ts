@@ -1,8 +1,18 @@
-import { Options } from "./ICookie";
+import { CookieOptions, CookiesList } from "./interfaces";
 import { validate, buildCookie } from "./utils";
 
 export const cookie = {
-    set(name: string, value: string, options?: Options): void {
+    get(name: string): string | undefined {
+        const cookies = document.cookie
+            .split(";")
+            .map((cookie) => cookie.trim());
+        const cookie = cookies.find((cookie) => cookie.split("=")[0] === name);
+        if (cookie) {
+            return cookie.split("=")[1];
+        }
+    },
+
+    set(name: string, value: string, options?: CookieOptions): void {
         const exceeds = validate(value);
         if (exceeds) {
             throw new Error(
@@ -22,21 +32,24 @@ export const cookie = {
         document.cookie = buildCookie(base, options);
     },
 
-    get(name: string): string | undefined {
-        const cookies = document.cookie
-            .split(";")
-            .map((cookie) => cookie.trim());
-        const cookie = cookies.find((cookie) => cookie.split("=")[0] === name);
-        if (cookie) {
-            return cookie.split("=")[1];
-        }
-    },
-
     clear(): void {
         document.cookie.split(";").forEach((cookie) => {
             const eqPos = cookie.indexOf("=");
             const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
             document.cookie = name + "=;expires=Thu, 01 Jan 2000 00:00:00 GMT";
+        });
+    },
+ 
+    list(): CookiesList[] | [] {
+        if (!document.cookie) {
+            return [];
+        }
+        const cookies = document.cookie
+            .split(";")
+            .map((cookie) => cookie.trim());
+        return cookies.map((cookie) => {
+            const [key, value] = cookie.split("=");
+            return { [key]: value };
         });
     },
 };

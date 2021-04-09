@@ -47,5 +47,5 @@ export const buildCookie = (cookie: string, options: Options): string => {
     if (options.secure) {
         cookie += ";" + "secure";
     }
-    return cookie;
+    return cookie; 
 };
